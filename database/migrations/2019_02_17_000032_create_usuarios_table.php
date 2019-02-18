@@ -46,15 +46,12 @@ class CreateUsuariosTable extends Migration
         });
 
 
-        DB::table('usuarios')->insert(
-        array(
-            'name' => 'Administrador',
-            'usuario_estado' => 1,
-            'email' => 'admin@patache.cl',
-            'password' => '$2y$10$WHGFsPfXkHavbsKyLUYSreRkIePdcU36YYQ8qu3FCQScuMDaWVZO2'
-        )
+        $data = array(
+            array('name' => 'Super Administrador', 'usuario_estado' => 1, 'email' => 'superadmin@patache.cl', 'password' => '$2y$10$WHGFsPfXkHavbsKyLUYSreRkIePdcU36YYQ8qu3FCQScuMDaWVZO2'),
+            array('name' => 'Administrador', 'usuario_estado' => 1, 'email' => 'admin@patache.cl', 'password' => '$2y$10$WHGFsPfXkHavbsKyLUYSreRkIePdcU36YYQ8qu3FCQScuMDaWVZO2')
         );
 
+        DB::table('usuarios')->insert($data);
 
     }
 

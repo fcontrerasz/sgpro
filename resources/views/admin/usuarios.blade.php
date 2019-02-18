@@ -2,7 +2,15 @@
  
 @section('content')
 <div class="container">
+
     <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <transition name="ini-anim" enter-active-class="animated flipInX" leave-active-class="animated fadeOut" >
+                <listar-usuarios-component></listar-usuarios-component>
+            </transition>
+        </div>
+    </div>
+    <div class="row hide">
         <div class="col-md-10 col-md-offset-1">
             <h3>Listado de Usuarios</h3>
             @if(session()->has('success'))
@@ -33,7 +41,7 @@
                                 </div>
                             </div>
 
-                            
+                             
                             
                             <div class="table-responsive">
                                 <table class="table table-striped">
@@ -51,16 +59,16 @@
 
                                     	 @forelse ($users as $user)
 					                    <tr class="{{ ($user->activo == 0) ? 'danger' : '' }}">
-					                        <td>{{ $user->id }}</td>
-					                        <td>{{ $user->nombre_completo }}</td>
+					                        <td>{{ $user->idusuario }}</td>
+					                        <td>{{ $user->name }}</td>
 					                        <td>{{ $user->email }}</td>
 					                        <td>
-					                            @foreach ($user->roles()->pluck('descripcion') as $role)
+					                            @foreach ($user->roles()->pluck('perfil_glosa') as $role)
 					                                <span class="label label-default">{{ $role }}</span>
 					                            @endforeach
 					                        </td>
 					                        <td>
-					                            @if (Auth::id() != $user->id)
+					                            @if (Auth::id() != $user->idusuario)
 					                                <a class="btn btn-white btn-bitbucket"><i class="fa fa-exchange"></i></a>
 					                            @endif
 					                             <a class="btn btn-white btn-bitbucket"><i class="fa fa-pencil"></i></a>
@@ -74,14 +82,6 @@
 					                    @endforelse
 
 
-                                    <tr>
-                                        <td><div class="icheckbox_square-green checked" style="position: relative;"><input type="checkbox" checked="" class="i-checks" name="input[]" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                        <td>Project<small>This is example of project</small></td>
-                                        <td><span class="pie" style="display: none;">0.52/1.561</span><svg class="peity" height="16" width="16"><path d="M 8 8 L 8 0 A 8 8 0 0 1 14.933563796318165 11.990700825968545 Z" fill="#1ab394"></path><path d="M 8 8 L 14.933563796318165 11.990700825968545 A 8 8 0 1 1 7.999999999999998 0 Z" fill="#d7d7d7"></path></svg></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
                                     </tbody>
                                 </table>
 

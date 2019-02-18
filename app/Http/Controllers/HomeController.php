@@ -16,6 +16,6 @@ class HomeController extends Controller
     {
     	//dd($request->user()->authorizeRoles(['generico', 'admin']));
     	$request->user()->authorizeRoles(['generico', 'admin']);
-        return view('admin');
+        return view('panel');
     }
 }

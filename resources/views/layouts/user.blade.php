@@ -88,7 +88,6 @@
         </div>
         <div class="wrapper wrapper-content" id="app">
             
-{{ Breadcrumbs::render('home') }} 
 
             
                 @yield('content')

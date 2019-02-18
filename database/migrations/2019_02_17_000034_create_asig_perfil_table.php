@@ -50,6 +50,14 @@ class CreateAsigPerfilTable extends Migration
             'idperfil' => 1
         )
         );
+        
+        DB::table('asig_perfil')->insert(
+        array(
+            'idusuario' => 2,
+            'idperfil' => 2
+        )
+        );
+
 
     }
 

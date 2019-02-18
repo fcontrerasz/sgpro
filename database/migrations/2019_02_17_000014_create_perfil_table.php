@@ -28,6 +28,7 @@ class CreatePerfilTable extends Migration
         });
 
         $data = array(
+            array('perfil_glosa' => 'Super Administrador', 'perfil_nombre' => 'superadmin'),
             array('perfil_glosa' => 'Administrador', 'perfil_nombre' => 'admin'),
             array('perfil_glosa' => 'Generico', 'perfil_nombre' => 'generico'),
             array('perfil_glosa' => 'Auditor', 'perfil_nombre' => 'auditor'),
