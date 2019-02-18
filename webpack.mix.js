@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 
 mix.copyDirectory('resources/assets/fonts', 'public/fonts');
 mix.copyDirectory('resources/assets/img', 'public/img');
+mix.copyDirectory('resources/assets/font-awesome', 'public/font-awesome');
 
 mix.styles([
     'resources/assets/css/fuentes.css',
